@@ -1,0 +1,49 @@
+<h1>Classifieds</h1>
+
+<button id="newAdFormBtn" ng-click="$ctrl.toggleAdvertiseForm($event)" ng-init="vm.toggleAdvertiseFormTracker=false">Advertise</button>
+
+
+    <ul class="nav nav-pills">
+        <li role="presentation" class="active">
+            <input type="search" class="form-control input-sm search-form" placeholder="Filter" ng-model="$ctrl.searchText">
+        </li>
+        <label for="sortDropdown">Sort Ads by</label>
+        <select ng-model=$ctrl.sortCategory id="sortDropdown">
+            <option value="created_at">Date</option>
+            <option value="price">Price</option>
+        </select>
+    </ul>
+
+
+<form  name="$ctrl.adForm" ng-if="$ctrl.toggleAdvertiseFormTracker" novalidate ng-submit="$ctrl.submitAd($ctrl.ad)" >
+    <div>
+        <label for="title">Title</label>
+        <input id="title" name="title" class="form-control" required ng-model="$ctrl.ad.title" ng-class="{'has-error': $ctrl.ad.title.$invalid && $ctrl.ad.title.$touched}">
+    </div>
+    <div>
+        <label for="description">Description</label>
+        <textarea id="description" name="description" class="form-control" required ng-model="$ctrl.ad.description" ng-class="{'has-error': $ctrl.adForm.body.$invalid && $ctrl.adForm.body.$touched}"></textarea>
+    </div>
+    <div>
+        <label for="price">Price</label>
+        <input id="price" name="price" class="form-control" required ng-model="$ctrl.ad.price" ng-class="{'has-error': $ctrl.adForm.price.$invalid && $ctrl.adForm.price.$touched}">
+    </div>
+    <div>
+        <label for="item_image">Image URL</label>
+        <input id="item_image" name="item_image" class="form-control" required ng-model="$ctrl.ad.item_image" ng-class="{'has-error': $ctrl.adForm.item_image.$invalid && $ctrl.adForm.item_image.$touched}">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" ng-disabled="$ctrl.adForm.$invalid">
+        Create Ad
+        </button>
+    </div>
+</form>
+
+    <div ng-repeat="ad in $ctrl.ads | filter : $ctrl.searchText | orderBy : $ctrl.sortCategory :true" id={{$index}} >
+    <h2>{{ad.title}}</h1>
+    <a ui-sref="editAd({id:ad.id})"><button>edit</button></a>
+    <button ng-click="$ctrl.deleteAd(ad.id)">delete</button>
+    <p>Price: {{ad.price}}</p>
+    <p>Description: {{ad.description}}</p>
+    <p><img ng-src={{ad.item_image}} alt="item image"></p>
+</div>
