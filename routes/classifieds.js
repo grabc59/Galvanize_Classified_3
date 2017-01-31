@@ -9,7 +9,7 @@ const router = express.Router();
 // YOUR CODE HERE
 
 ////////////////////////
-//////// GET ALL 
+//////// GET ALL
 ////////////////////////
 router.get('/', function(req, res, next) {
   knex('classifieds')
@@ -17,6 +17,7 @@ router.get('/', function(req, res, next) {
   .orderBy('id')
   .then((result) => {
     res.send(result);
+    console.log(result);
   })
   .catch((err) => {
     next(err);
@@ -24,7 +25,7 @@ router.get('/', function(req, res, next) {
 });
 
 ////////////////////////
-//////// GET SINGLE 
+//////// GET SINGLE
 ////////////////////////
 router.get('/:id', function(req, res, next) {
   knex('classifieds')
