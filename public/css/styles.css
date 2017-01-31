@@ -9,3 +9,10 @@
 .cg-search {
     color: black;
 }
+
+.cg-btn {
+    background-color: rgb(247, 144, 30);
+    right: 0;
+    top: 20px;
+    position: absolute;
+}

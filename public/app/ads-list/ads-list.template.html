@@ -13,16 +13,13 @@
 <nav>
   <div class="nav-wrapper cg-nav">
     <a href="#!" class="brand-logo"><h1>Galvanize Classifieds</h1></a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="#" id="newAdFormBtn" ng-click="$ctrl.toggleAdvertiseForm($event)" ng-init="vm.toggleAdvertiseFormTracker=false">Advertise</a></li>
-      <li><input type="search" class="form-control input-sm search-form cg-search" placeholder="Search" ng-model="$ctrl.searchText"></li>
-    </ul>
+    
   </div>
 </nav>
 <div class="container">
 <div class="row">
-    <div class="col m4"
-    <md-input-container id="sortDropdown"  class="md-block dropdown-button" flex-gt-sm>
+    <div class="col m4">
+        <md-input-container id="sortDropdown"  class="md-block dropdown-button" flex-gt-sm>
             <!--<label>Sort By:</label>-->
             <md-select ng-model=$ctrl.sortCategory placeholder="Sort By">
                 <md-option value="created_at">
@@ -33,10 +30,19 @@
                 </md-option>
             </md-select>
         </md-input-container>
-    <!--<div class="col m12">-->
-        <!--<h1 class="main-header">Galvanize Classifieds</h1>-->
-        <!--<button class="btn btn-primary" id="newAdFormBtn" ng-click="$ctrl.toggleAdvertiseForm($event)" ng-init="vm.toggleAdvertiseFormTracker=false">Advertise</button>-->
     </div>
+    <div class="col m4">
+    </div>
+    <div class="col m4">
+        <!--<ul class=" hide-on-large-only">
+            <li><a class="btn btn-primary" href="#" id="newAdFormBtn" ng-click="$ctrl.toggleAdvertiseForm($event)" ng-init="vm.toggleAdvertiseFormTracker=false">Advertise</a></li>
+            <li><input type="search" class="form-control input-sm search-form cg-search" placeholder="Search" ng-model="$ctrl.searchText"></li>
+        </ul>-->
+        <a class="btn btn-primary cg-btn" href="#" id="newAdFormBtn" ng-click="$ctrl.toggleAdvertiseForm($event)" ng-init="vm.toggleAdvertiseFormTracker=false">Advertise</a>
+    </div>
+</div>
+<div class="row">
+    <input type="search" class="form-control input-sm search-form cg-search" placeholder="Search" ng-model="$ctrl.searchText">
 </div>
 
 <form  name="$ctrl.adForm" ng-if="$ctrl.toggleAdvertiseFormTracker" novalidate ng-submit="$ctrl.submitAd($ctrl.ad)" >
