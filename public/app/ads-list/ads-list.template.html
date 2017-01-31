@@ -1,19 +1,34 @@
-<h1>Classifieds</h1>
+<div class="row">
+    <div class="col m12">
+        <h1>Galvanize Classifieds</h1>
+        <button class="btn btn-primary" id="newAdFormBtn" ng-click="$ctrl.toggleAdvertiseForm($event)" ng-init="vm.toggleAdvertiseFormTracker=false">Advertise</button>
+    </div>
+</div>
+<select ng-model=$ctrl.sortCategory id="sortDropdown">
+    <option value="created_at">Date</option>
+    <option value="price">Price</option>
+</select>
 
-<button id="newAdFormBtn" ng-click="$ctrl.toggleAdvertiseForm($event)" ng-init="vm.toggleAdvertiseFormTracker=false">Advertise</button>
+<!--<a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>-->
 
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
 
-    <ul class="nav nav-pills">
-        <li role="presentation" class="active">
-            <input type="search" class="form-control input-sm search-form" placeholder="Filter" ng-model="$ctrl.searchText">
-        </li>
-        <label for="sortDropdown">Sort Ads by</label>
-        <select ng-model=$ctrl.sortCategory id="sortDropdown">
-            <option value="created_at">Date</option>
-            <option value="price">Price</option>
-        </select>
-    </ul>
-
+<div class="row">
+    <div class="col m4">
+        <!--<ul class="nav nav-pills">-->
+            <!--<li role="presentation" class="active">-->
+            <input type="search" class="form-control input-sm search-form" placeholder="Search" ng-model="$ctrl.searchText">
+            <!--</li>-->
+            <!--<label for="sortDropdown">Sort Ads by</label>-->
+        <!--</ul>-->
+    </div>
+</div>
 
 <form  name="$ctrl.adForm" ng-if="$ctrl.toggleAdvertiseFormTracker" novalidate ng-submit="$ctrl.submitAd($ctrl.ad)" >
     <div>
@@ -39,11 +54,20 @@
     </div>
 </form>
 
-    <div ng-repeat="ad in $ctrl.ads | filter : $ctrl.searchText | orderBy : $ctrl.sortCategory :true" id={{$index}} >
-    <h2>{{ad.title}}</h1>
-    <a ui-sref="editAd({id:ad.id})"><button>edit</button></a>
-    <button ng-click="$ctrl.deleteAd(ad.id)">delete</button>
-    <p>Price: {{ad.price}}</p>
-    <p>Description: {{ad.description}}</p>
-    <p><img ng-src={{ad.item_image}} alt="item image"></p>
+
+<div class="row">
+    <div class="col s12 m3" ng-repeat="ad in $ctrl.ads | filter : $ctrl.searchText | orderBy : $ctrl.sortCategory : true" id={{$index}}>
+        <div class="card" >
+            <div class="card-image" >
+                <img ng-src={{ad.item_image}} alt="item image">
+                <a style="right:70px;" class="btn-floating halfway-fab waves-effect waves-light rgb(38,166,154)"><i class="material-icons">mode_edit</i></a>
+                <a  class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>   
+            </div>
+            <div class="card-content">
+                <h4 ><b>{{ad.title}}</b></h4>
+                <b>Price:</b> <p>{{ad.price | currency}}</p>
+                <b>Description:</b> <p class="card-text">{{ad.description}}</p>
+            </div>
+        </div>
+    </div>
 </div>
