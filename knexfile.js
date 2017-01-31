@@ -1,16 +1,16 @@
 // Update with your config settings.
 
 module.exports = {
-  development: { 
+  development: {
     client: 'pg',
     connection: 'postgres://localhost/galvanize_classified_dev'
   },
-  test: { 
+  test: {
     client: 'pg',
     connection: 'postgres://localhost/galvanize_classified_test'
   },
-  production: { 
+  production: {
     client: 'pg',
-    connection: 'postgres://vhqanooxzvhlqv:065cf8b07ed44628fd5b8273775766e5765b24cc52b1eac0177faf741c6f48e5@ec2-54-235-120-27.compute-1.amazonaws.com:5432/dfurbv7a35v5h0'
+    connection: 'postgres://rahfveyoqbshvt:3bf7f8889e5e59202700f0c975f28e152e7657b4cbcf4cbe1482284b723766a7@ec2-54-225-71-119.compute-1.amazonaws.com:5432/dbks639cnca8mt'
   }
 };
