@@ -38,7 +38,7 @@
         .then(function() {
           vm.toggleAdvertiseFormTracker = false;
           delete vm.ad;
-          vm.getPosts();
+          vm.getAds();
         })
       }
 
