@@ -45,22 +45,23 @@
     <input type="search" class="form-control input-sm search-form cg-search" placeholder="Search" ng-model="$ctrl.searchText">
 </div>
 
-<form  name="$ctrl.adForm" ng-if="$ctrl.toggleAdvertiseFormTracker" novalidate ng-submit="$ctrl.submitAd($ctrl.ad)" >
+<form  name="$ctrl.adForm" ng-if="$ctrl.toggleAdvertiseFormTracker" novalidate ng-submit="$ctrl.submitAd($ctrl.ad)">
     <div>
         <label for="title">Title</label>
-        <input id="title" name="title" class="form-control" required ng-model="$ctrl.ad.title" ng-class="{'has-error': $ctrl.ad.title.$invalid && $ctrl.ad.title.$touched}">
+        <input id="title" name="title" class="form-control" required ng-model="$ctrl.ad.title" ng-class="{'invalid': $ctrl.adForm.title.$invalid && $ctrl.adForm.title.$touched}">
     </div>
     <div>
         <label for="description">Description</label>
-        <textarea id="description" name="description" class="form-control" required ng-model="$ctrl.ad.description" ng-class="{'has-error': $ctrl.adForm.body.$invalid && $ctrl.adForm.body.$touched}"></textarea>
+        <textarea id="description" name="description" class="form-control" required ng-model="$ctrl.ad.description" ng-class="{'invalid': $ctrl.adForm.description.$invalid && $ctrl.adForm.description.$touched}"></textarea>
+        <!-- <textarea id="description" name="description" class="form-control" required ng-model="$ctrl.ad.description" ng-class="{'has-error': $ctrl.adForm.body.$invalid && $ctrl.adForm.body.$touched}"></textarea> -->
     </div>
     <div>
         <label for="price">Price</label>
-        <input id="price" name="price" class="form-control" required ng-model="$ctrl.ad.price" ng-class="{'has-error': $ctrl.adForm.price.$invalid && $ctrl.adForm.price.$touched}">
+        <input id="price" name="price" class="form-control" required ng-model="$ctrl.ad.price" ng-class="{'invalid': $ctrl.adForm.price.$invalid && $ctrl.adForm.price.$touched}">
     </div>
     <div>
         <label for="item_image">Image URL</label>
-        <input id="item_image" name="item_image" class="form-control" required ng-model="$ctrl.ad.item_image" ng-class="{'has-error': $ctrl.adForm.item_image.$invalid && $ctrl.adForm.item_image.$touched}">
+        <input id="item_image" name="item_image" class="form-control" required ng-model="$ctrl.ad.item_image" ng-class="{'invalid': $ctrl.adForm.item_image.$invalid && $ctrl.adForm.item_image.$touched}">
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary" ng-disabled="$ctrl.adForm.$invalid">
