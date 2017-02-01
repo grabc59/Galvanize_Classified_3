@@ -46,7 +46,7 @@ exports.seed = function(knex, Promise) {
           title: 'Mac',
           description: 'Ocular patdown',
           price: 50,
-          item_image: 'itd-tbn3.gstatic.com/images?q=tbn:ANd9GcTNmqX0vqVIMj_SBoCO0YZoy4JtUwyUZBR3ObNU6ir5WJwqZobo2A',
+          item_image: 'https://media.giphy.com/media/EgvHKApzL5OeI/giphy.gif',
           created_at: '2016-06-26T14:26:16.000Z',
           updated_at: '2016-06-26T14:26:16.000Z'
         }),
