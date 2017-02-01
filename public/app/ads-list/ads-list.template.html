@@ -70,12 +70,12 @@
 </form>
 
 
-<div class="row card-container">
+<div class="row cards-container cg-cards-container" >
 
-    <div class="col s12 m6" ng-repeat="ad in $ctrl.ads | filter : $ctrl.searchText | orderBy : $ctrl.sortCategory : true" id={{$index}}>
+    <div class="" ng-repeat="ad in $ctrl.ads | filter : $ctrl.searchText | orderBy : $ctrl.sortCategory : true" id={{$index}}>
         <div class="card" >
             <div class="card-image" >
-                <img ng-src={{ad.item_image}} alt="item image">
+                <img ng-src={{ad.item_image}} style="min-width:300px" alt="item image">
                 <a ui-sref="editAd({id:ad.id})" style="right:70px;" class="btn-floating halfway-fab waves-effect waves-light rgb(38,166,154)"><i class="material-icons">mode_edit</i></a>
                 <a ng-click="$ctrl.deleteAd(ad.id)" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>
             </div>
