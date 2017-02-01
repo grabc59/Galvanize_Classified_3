@@ -6,14 +6,14 @@
   overflow: visible;
 }
 
-@media only screen and (max-width: 729px) {
+@media only screen and (max-width: 469px) {
   .cards-container {
     -webkit-column-count: 1;
     -moz-column-count: 1;
     column-count: 1;
   }
 }
-@media only screen and (min-width: 730px) {
+@media only screen and (min-width: 470px) {
   .cards-container {
     -webkit-column-count: 2;
     -moz-column-count: 2;
