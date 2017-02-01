@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "knex": "knex",
-    "heroku-postbuild": "knex migrate:latest && pwd",
+    "heroku-postbuild": "knex migrate:latest",
     "start": "nodemon server.js",
     "test": "mocha"
   },
